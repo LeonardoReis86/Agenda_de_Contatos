@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Agenda de Contatos</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <main>
+      <h1>Lista de Contatos</h1>
+      <form onsubmit="return foneValidade();">
+         <label for="name-contact">Nome:</label>
+         <input id="name-contact" type="text" required>
+
+         <label for="tel">Telefone:</label>
+         <input id="tel-contact" type="text" required>
+
+         <button type="button" onclick="addContact()">Cadastrar</button>
+         <button type="button" onclick="limparFormulario()">Cancelar</button>
+      </form>
+
+      <table id="contact-table">
+         <thead>
+            <tr>
+               <th>Nome</th>
+               <th>Telefone</th>
+            </tr>
+         </thead>
+         <tbody>
+
+         </tbody>
+      </table>
+
+      <script src="./script.js"></script>
+   </main>
+</body>
+</html>
