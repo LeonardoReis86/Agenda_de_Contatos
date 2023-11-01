@@ -8,21 +8,25 @@
    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <main>
-      <h1>Lista de Contatos</h1>
+   <main class="container">
+      <header class="header-container">
+         <h1>Formulário de Cadastro</h1>
+      </header>
       <form onsubmit="return foneValidade();">
          <label for="name-contact">Nome:</label>
-         <input id="name-contact" type="text" required>
+         <input id="name-contact" type="text" placeholder="Digite o nome" required>
 
-         <label for="tel">Telefone:</label>
-         <input id="tel-contact" type="text" required>
+         <label for="phone-contact">Telefone:</label>
+         <input id="phone-contact" type="text" placeholder="Digite o número do telefone" required>
 
-         <button type="button" onclick="addContact()">Cadastrar</button>
-         <button type="button" onclick="limparFormulario()">Limpar</button>
+         <button class="btn-add" type="button" onclick="addContact()">Cadastrar</button>
       </form>
 
       <table id="contact-table">
          <thead>
+            <th>
+               Agenda de Contatos
+            </th>
             <tr>
                <th>Nome</th>
                <th>Telefone</th>
