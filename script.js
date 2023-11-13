@@ -3,7 +3,6 @@ const form = document.getElementById('contact-form');
 form.addEventListener('submit', function(e) {
       e.preventDefault();
       addContact();
-
 });
 
 function addContact() {
@@ -16,12 +15,11 @@ function addContact() {
    if (name !== '' && phone !== '' && !contactExists(name, phone)) {
       addContactToTable(name, phone);
       clearForm();
-      console.log('Tabela adicionada');
    } else {
       if (name === '' || phone === '') {
          alert('Por favor, preencha tanto o nome quanto o telefone.');
       } else {
-         alert('O contato já possui cadastrado.');
+         alert('O contato já possui cadastro.');
       }
    }
 }
