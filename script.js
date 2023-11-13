@@ -1,32 +1,59 @@
-// função para adicionar um contato a tabela
+const form = document.getElementById('contact-form');
+
+form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      addContact();
+
+});
+
 function addContact() {
+   const nameInput = document.getElementById('name-contact');
+   const phoneInput = document.getElementById('phone-contact');
 
-// pegar os valores dos campos nome e telefone
-   const nameContact = document.getElementById("name-contact").value;
-   const phoneContact = document.getElementById("phone-contact").value;
+   const name = nameInput.value.trim();
+   const phone = phoneInput.value.trim();
 
-// verificação se os campos estão preenchidos
-   if (nameContact && phoneContact) {
-   
-// Selecionar o corpo da tabela (tbody)
-   const tbody = document.querySelector("#contact-table tbody");
-      
-// Criar uma nova linha
-   const newRow = tbody.insertRow();
-
-// Adicionar celula a tabela
-   const cellName = newRow.insertCell(0);
-   cellName.textContent = nameContact;
-
-   const cellPhone = newRow.insertCell(1);
-   cellPhone.textContent = phoneContact;
-
-// limpar campos do input
-   document.getElementById("name-contact").value = "";
-   document.getElementById("phone-contact").value = "";
+   if (name !== '' && phone !== '' && !contactExists(name, phone)) {
+      addContactToTable(name, phone);
+      clearForm();
+      console.log('Tabela adicionada');
    } else {
-      alert ("Por favor, preencha os campos NOME e TELEFONE antes de cadastrar.");
+      if (name === '' || phone === '') {
+         alert('Por favor, preencha tanto o nome quanto o telefone.');
+      } else {
+         alert('O contato já possui cadastrado.');
+      }
    }
 }
 
-document.querySelector("btn-add").addEventListener("click", addContact);
+function contactExists(name, phone) {
+   const tbody = document.getElementById('contact-list');
+
+   for (let i = 0; i < tbody.rows.length; i++) {
+      const existingName = tbody.rows[i].cells[0].textContent;
+      const existingPhone = tbody.rows[i].cells[1].textContent;
+
+      if(existingName === name|| existingPhone === phone){
+         return true;
+      }
+   }
+   return false;
+}
+
+function addContactToTable(name, phone) {
+   const tbody = document.getElementById('contact-list');
+
+   const row = tbody.insertRow();
+   // Insere duas células (colunas) na nova linha e obtém referências a essas células
+   const cellName = row.insertCell(0);
+   const cellPhone = row.insertCell(1);
+
+   // Define o conteúdo de texto das células com os valores do nome e telefone
+   cellName.textContent = name;
+   cellPhone.textContent = phone;
+}
+
+function clearForm() {
+   document.getElementById('name-contact').value = '';
+   document.getElementById('phone-contact').value = '';
+}

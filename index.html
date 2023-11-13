@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,30 +10,47 @@
 <body>
    <main class="container">
       <header class="header-container">
-         <h1>Formulário de Cadastro</h1>
+         <h1>Agenda de Contatos</h1>
       </header>
-      <form onsubmit="return foneValidade();">
+      <form id="contact-form">
          <label for="name-contact">Nome:</label>
          <input id="name-contact" type="text" placeholder="Digite o nome" required>
 
          <label for="phone-contact">Telefone:</label>
-         <input id="phone-contact" type="text" placeholder="Digite o número do telefone" required>
+         <input id="phone-contact" type="tel" placeholder="Digite o número do telefone" required>
 
-         <button class="btn-add" type="button" onclick="addContact()">Cadastrar</button>
+         <button class="btn-add" type="submit">Cadastrar</button>
       </form>
 
-      <table id="contact-table">
+      <table id="contact-table" cellspacing="0">
          <thead>
-            <th>
-               Agenda de Contatos
-            </th>
             <tr>
                <th>Nome</th>
                <th>Telefone</th>
             </tr>
          </thead>
-         <tbody>
-
+         <tbody id="contact-list">
+            <tr>
+               <td>leonardo</td>
+               <td>9898695896845</td>
+            </tr>
+            <tr>
+            <tr>
+               <td>leonardo</td>
+               <td>9898695896845</td>
+            </tr>
+            <tr>
+               <td>leonardo</td>
+               <td>9898695896845</td>
+            </tr>
+            <tr>
+               <td>leonardo</td>
+               <td>9898695896845</td>
+            </tr>
+            <tr>
+               <td>leonardo</td>
+               <td>9898695896845</td>
+            </tr>
          </tbody>
       </table>
 
